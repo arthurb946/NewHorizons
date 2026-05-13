@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="New Horizons by Claire Wallace — Hypnotherapy, Psychotherapy, and Metaphysics services online worldwide. Begin your journey of transformation today.">
+  <title>New Horizons by Claire Wallace | Hypnotherapy & Psychotherapy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Anime.js for advanced animations -->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+  <style>
+    /* ============================================
+       PALETTE — Dark, mystical, spiritual
+       ============================================ */
+    :root {
+      --bg:           #0d0a1a;
+      --bg-2:         #15102a;
+      --bg-3:         #1d1638;
+      --ink:          #e8e4f5;
+      --ink-soft:     #b5add0;
+      --ink-muted:    #8a82a8;
+      --gold:         #d4b87a;
+      --gold-deep:    #b8954d;
+      --gold-soft:    #e8d6a8;
+      --purple:       #8a6fc7;
+      --purple-deep:  #5d3fa0;
+      --line:         rgba(212, 184, 122, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle starfield background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 20% 30%, rgba(232, 214, 168, 0.4), transparent),
+        radial-gradient(1px 1px at 70% 70%, rgba(232, 214, 168, 0.3), transparent),
+        radial-gradient(1.5px 1.5px at 40% 80%, rgba(232, 214, 168, 0.35), transparent),
+        radial-gradient(1px 1px at 90% 20%, rgba(232, 214, 168, 0.4), transparent),
+        radial-gradient(1px 1px at 10% 60%, rgba(232, 214, 168, 0.3), transparent),
+        radial-gradient(1.5px 1.5px at 60% 10%, rgba(232, 214, 168, 0.35), transparent),
+        radial-gradient(1px 1px at 30% 50%, rgba(232, 214, 168, 0.3), transparent),
+        radial-gradient(1px 1px at 85% 90%, rgba(232, 214, 168, 0.4), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    a { color: var(--gold); }
+
+    /* ============================================
+       NAV
+       ============================================ */
+    nav {
+      background: rgba(13, 10, 26, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gold-soft);
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 1px solid var(--gold-soft);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      cursor: pointer;
+    }
+    @media (max-width: 820px) {
+      .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+        pointer-events: none;
+        z-index: 200;
+      }
+      .nav-links::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at top, rgba(93, 63, 160, 0.3), transparent 60%),
+          radial-gradient(ellipse at bottom, rgba(184, 149, 77, 0.15), transparent 60%);
+        pointer-events: none;
+      }
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .nav-links a {
+        font-family: 'Cormorant Garamond', serif !important;
+        font-style: italic !important;
+        font-size: 2.5rem !important;
+        text-transform: none !important;
+        letter-spacing: 0.02em !important;
+        color: var(--ink) !important;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s;
+        position: relative;
+        z-index: 1;
+      }
+      .nav-links a:hover { color: var(--gold) !important; }
+      .nav-links.open a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .nav-links.open a:nth-child(1) { transition-delay: 0.3s; }
+      .nav-links.open a:nth-child(2) { transition-delay: 0.7s; }
+      .nav-links.open a:nth-child(3) { transition-delay: 1.1s; }
+      .nav-links.open a:nth-child(4) { transition-delay: 1.5s; }
+      .nav-links.open a:nth-child(5) { transition-delay: 1.9s; }
+      .nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 201;
+      }
+      .nav-toggle .icon-open,
+      .nav-toggle .icon-close {
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      .nav-toggle .icon-close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transform: rotate(-90deg);
+      }
+      body.menu-open .nav-toggle .icon-open {
+        opacity: 0;
+        transform: rotate(90deg);
+      }
+      body.menu-open .nav-toggle .icon-close {
+        opacity: 1;
+        transform: rotate(0);
+      }
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      padding: 6rem 1.5rem 7rem;
+      text-align: center;
+      position: relative;
+      background:
+        radial-gradient(ellipse at top, rgba(93, 63, 160, 0.25), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(184, 149, 77, 0.15), transparent 60%);
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding: 0 2rem;
+      position: relative;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: "✦";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold-deep);
+    }
+    .hero-eyebrow::before { left: 0; }
+    .hero-eyebrow::after { right: 0; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2.75rem, 6vw, 5rem);
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 .accent {
+      color: var(--gold);
+      font-style: normal;
+    }
+    .hero-sub {
+      color: var(--ink-soft);
+      font-size: 1.15rem;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+      background: transparent;
+      color: var(--gold);
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    .btn-primary:hover {
+      background: var(--gold-soft);
+      border-color: var(--gold-soft);
+    }
+    .btn-secondary:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* Decorative divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+      color: var(--gold);
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold) 50%, transparent);
+      max-width: 100px;
+    }
+
+    /* ============================================
+       SECTIONS
+       ============================================ */
+    section {
+      padding: 6rem 1.5rem;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+    }
+
+    /* ============================================
+       INTRO / WELCOME
+       ============================================ */
+    .welcome {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .welcome-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 760px) {
+      .welcome-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .welcome-image {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg-3), var(--purple-deep));
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .welcome-image::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-deep);
+    }
+    .welcome-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+    .welcome-text h2 .accent { color: var(--gold); }
+    .welcome-text p {
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+    }
+
+    /* ============================================
+       SERVICES
+       ============================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 20px;
+      height: 20px;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+    }
+    .service-card::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 20px;
+      height: 20px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+    }
+    .service-card:hover {
+      background: var(--bg-3);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 0.75rem; }
+
+    /* ============================================
+       TESTIMONIALS
+       ============================================ */
+    .testimonials {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 2rem 1.75rem;
+      position: relative;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      letter-spacing: 0.15em;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--ink);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-author {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .testimonial-location {
+      color: var(--ink-muted);
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ============================================
+       JOURNEY / HOW IT WORKS
+       ============================================ */
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .journey-step {
+      text-align: center;
+      position: relative;
+    }
+    .journey-num {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--bg-2);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.75rem;
+      color: var(--gold);
+      position: relative;
+    }
+    .journey-num::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+    }
+    .journey-step h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 0.75rem;
+    }
+    .journey-step p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    /* ============================================
+       FAQ
+       ============================================ */
+    .faq-section {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--ink);
+      padding: 1.5rem 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-toggle {
+      color: var(--gold);
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--ink-soft);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+      padding: 0 0 1.5rem;
+    }
+
+    /* ============================================
+       CONTACT
+       ============================================ */
+    .contact-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 760px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .contact-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+    .contact-info h2 .accent { color: var(--gold); }
+    .contact-info p {
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+    }
+    .social-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-link:hover {
+      border-color: var(--gold);
+      background: var(--bg-2);
+    }
+    .social-link svg { width: 20px; height: 20px; }
+
+    .contact-form {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      padding: 2.5rem;
+      position: relative;
+    }
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 25px;
+      height: 25px;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+    }
+    .contact-form::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 25px;
+      height: 25px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .contact-form button {
+      width: 100%;
+      background: var(--gold);
+      color: var(--bg);
+      padding: 1rem;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover { background: var(--gold-soft); }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    footer p {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+    .footer-small {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      opacity: 0.7;
+      margin-top: 1.5rem;
+    }
+    .footer-small a { color: var(--gold); text-decoration: none; }
+
+    /* ============================================
+       HIDDEN SECTIONS (multi-page handling)
+       ============================================ */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ============================================
+       VIDEO PLACEHOLDER
+       ============================================ */
+    .video-placeholder {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      max-width: 800px;
+      margin: 3rem auto;
+      position: relative;
+    }
+    /* ============================================
+       TWINKLING STARS
+       ============================================ */
+    .stars-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      background: var(--gold-soft);
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle var(--duration, 4s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      box-shadow: 0 0 4px var(--gold-soft);
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: var(--max-opacity, 0.6); transform: scale(1); }
+    }
+
+    /* ============================================
+       SPARKLE TRAIL
+       ============================================ */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, var(--gold-soft) 30%, var(--gold) 60%, transparent 100%);
+      box-shadow: 0 0 8px var(--gold), 0 0 16px var(--gold-deep);
+      animation: sparkle-fade 800ms ease-out forwards;
+    }
+    @keyframes sparkle-fade {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2) translateY(20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Twinkling stars background -->
+  <div class="stars-container" id="stars"></div>
+
+  <!-- ============================================
+       NAV
+       ============================================ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" onclick="showPage('home')">
+        <div class="nav-logo-mark">NH</div>
+        <span>New Horizons</span>
+      </a>
+      <button class="nav-toggle" onclick="toggleMenu()">
+        <span class="icon-open">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </span>
+        <span class="icon-close">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home" onclick="showPage('home'); closeMobile()">Home</a></li>
+        <li><a href="#about" onclick="showPage('about'); closeMobile()">Meet Claire</a></li>
+        <li><a href="#services" onclick="showPage('services'); closeMobile()">Services</a></li>
+        <li><a href="#faq" onclick="showPage('faq'); closeMobile()">FAQs</a></li>
+        <li><a href="#contact" onclick="showPage('contact'); closeMobile()">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HOME PAGE
+       ============================================ -->
+  <div class="page active" id="page-home">
+
+    <!-- Hero -->
+    <header class="hero">
+      <span class="hero-eyebrow">Begin Your Journey</span>
+      <h1>Transform your mind. <br><span class="accent">Awaken your spirit.</span></h1>
+      <p class="hero-sub">Online Hypnotherapy, Psychotherapy and Metaphysics. Reach me from anywhere in the world — and step into a life that feels lighter, calmer, and truly your own.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary" onclick="showPage('contact')">Book a Session</a>
+        <a href="#services" class="btn btn-secondary" onclick="showPage('services')">Explore Services</a>
+      </div>
+    </header>
+
+    <!-- Welcome -->
+    <section class="welcome">
+      <div class="welcome-grid">
+        <div class="welcome-image" style="background: url('claire.jpg') center/cover; padding: 0;">
+        </div>
+        <div class="welcome-text">
+          <span class="section-eyebrow">Welcome</span>
+          <h2>Online wellness, <span class="accent">guided with care.</span></h2>
+          <p>New Horizons by Claire Wallace is dedicated to guiding you through personal transformation. With expert Hypnotherapy and Psychotherapy services, I empower you to overcome challenges, achieve goals, and improve your mental health.</p>
+          <p>All sessions are conducted online from the comfort of your own home, via WhatsApp, Skype, or Zoom. Zoom sessions can be recorded so you can revisit them whenever you need.</p>
+          <p style="margin-top: 1.5rem;"><a href="#about" onclick="showPage('about')" class="service-link">More about me <span>→</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services overview -->
+    <section>
+      <div class="section-header">
+        <span class="section-eyebrow">What I Offer</span>
+        <h2>Services for mind &amp; soul</h2>
+        <p>Each pathway is designed to meet you where you are — gently, with intention, and at your own pace.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5c0 3 2 4 2 7v3a3 3 0 0 0 6 0v-3c0-3 2-4 2-7a5 5 0 0 0-5-5z"/><path d="M10 22h4"/></svg>
+          <h3>Hypnotherapy</h3>
+          <p>Access the power of your subconscious mind to make lasting, positive change — gently and effectively.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Psychotherapy</h3>
+          <p>A safe, supportive space to explore your thoughts, emotions and behaviours — and find clarity.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5 5l14 14M19 5L5 19"/></svg>
+          <h3>Akashic Record Clearings</h3>
+          <p>The spiritual library of your soul's journey — identify and heal past-life experiences holding you back.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <h3>Spirit &amp; Entity Release</h3>
+          <p>Gentle release work for those feeling weighed down by energies that do not belong to them.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="section-header">
+        <span class="section-eyebrow">Kind Words</span>
+        <h2>From those I've worked with</h2>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="testimonial-quote">"If you're looking for an honest, down to earth therapist then I recommend Claire. Her down to earth manner put me at ease straight away."</p>
+          <div class="testimonial-author">Melanie</div>
+          <div class="testimonial-location">Newcastle, UK</div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="testimonial-quote">"At first I was resistant to having Hypnotherapy but after my first session I felt so relaxed. Claire put me in trance and I felt completely at ease."</p>
+          <div class="testimonial-author">John</div>
+          <div class="testimonial-location">Los Angeles</div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="testimonial-quote">"That was the best Hypnotherapy session ever. I stopped smoking within one session — no cravings, no patches."</p>
+          <div class="testimonial-author">Sylvia</div>
+          <div class="testimonial-location">Doncaster, UK</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Journey -->
+    <section>
+      <div class="section-header">
+        <span class="section-eyebrow">How It Works</span>
+        <h2>Your journey, step by step</h2>
+      </div>
+      <div class="journey-grid">
+        <div class="journey-step">
+          <div class="journey-num">I</div>
+          <h3>Reach Out</h3>
+          <p>Send a message via the contact form or social media to start a conversation.</p>
+        </div>
+        <div class="journey-step">
+          <div class="journey-num">II</div>
+          <h3>Find Your Path</h3>
+          <p>We'll discuss what's bringing you here and which service best suits your needs.</p>
+        </div>
+        <div class="journey-step">
+          <div class="journey-num">III</div>
+          <h3>Begin to Transform</h3>
+          <p>Sessions held online — WhatsApp, Zoom or Skype — from wherever you feel most at ease.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============================================
+       ABOUT PAGE
+       ============================================ -->
+  <div class="page" id="page-about">
+    <section style="padding-top: 5rem;">
+      <div class="section-header">
+        <span class="section-eyebrow">Meet Claire</span>
+        <h2>The person behind the practice</h2>
+      </div>
+
+      <div class="welcome-grid" style="max-width: 1000px; margin: 0 auto;">
+        <div class="welcome-image" style="background: url('claire.jpg') center/cover; padding: 0;">
+        </div>
+        <div class="welcome-text">
+          <p style="color: var(--ink); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; margin-bottom: 1.5rem;">"I believe everyone has the power to transform their own life — sometimes we just need someone to walk alongside us for a while."</p>
+          <p>Claire Wallace is a qualified Hypnotherapist and Psychotherapist with a passion for helping clients achieve meaningful, lasting change. Drawing on years of experience, she combines traditional therapy with metaphysical practice to guide her clients toward clarity, peace and personal power.</p>
+          <p>Claire works with clients from all over the world online, making transformation accessible no matter where you are. Her down-to-earth approach has put countless people at ease — many have described their first session as the moment everything began to shift.</p>
+          <p style="margin-top: 1.5rem;"><a href="#contact" onclick="showPage('contact')" class="service-link">Get in touch <span>→</span></a></p>
+        </div>
+      </div>
+
+      <div class="video-placeholder">
+        <span>Introduction video — add here</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================
+       SERVICES PAGE
+       ============================================ -->
+  <div class="page" id="page-services">
+    <section style="padding-top: 5rem;">
+      <div class="section-header">
+        <span class="section-eyebrow">Full Services</span>
+        <h2>Explore your pathway</h2>
+        <p>All sessions are held online — flexible, private, and accessible from anywhere in the world.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5c0 3 2 4 2 7v3a3 3 0 0 0 6 0v-3c0-3 2-4 2-7a5 5 0 0 0-5-5z"/><path d="M10 22h4"/></svg>
+          <h3>Hypnotherapy</h3>
+          <p>Hypnotherapy is a gentle and effective way to access the power of your subconscious mind to make lasting positive changes. Through relaxation and focused awareness, it can help with smoking cessation, weight loss, anxiety, phobias and much more.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Psychotherapy</h3>
+          <p>Psychotherapy offers a safe, supportive space to explore and understand your thoughts, emotions and behaviours. Whether you're dealing with stress, grief, relationships or self-worth — together we'll work through it.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5 5l14 14M19 5L5 19"/></svg>
+          <h3>Akashic Record Clearings</h3>
+          <p>The Akashic Records are like a spiritual library of your soul's journey. Through Akashic Record Clearing, we can identify and heal past-life experiences that may be influencing your current life.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <h3>Spirit &amp; Entity Release</h3>
+          <p>For those who feel weighed down by energies that aren't their own. Gentle, careful release work that brings you back to yourself — lighter, clearer, and more grounded.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21a6 6 0 0 1 12 0M16 11a3 3 0 1 0 0-6M21 21a6 6 0 0 0-6-6"/></svg>
+          <h3>Group Hypnotherapy</h3>
+          <p>Workshops, group sessions and seminars are available for organisations and gatherings. Get in touch to discuss your group's needs.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-5 8-12V5l-8-3-8 3v5c0 7 8 12 8 12z"/></svg>
+          <h3>Talks &amp; Workshops</h3>
+          <p>Hypnotherapy talks for community groups, workshops and educational seminars. Bespoke to your audience and goals.</p>
+          <a href="#contact" class="service-link" onclick="showPage('contact')">Enquire <span>→</span></a>
+        </div>
+
+      </div>
+
+      <p style="text-align: center; color: var(--ink-muted); font-size: 0.9rem; margin-top: 3rem; font-style: italic;">Pricing available on enquiry — every journey is unique, and pricing is tailored to your needs.</p>
+
+    </section>
+  </div>
+
+  <!-- ============================================
+       FAQ PAGE
+       ============================================ -->
+  <div class="page" id="page-faq">
+    <section class="faq-section" style="padding-top: 5rem;">
+      <div class="section-header">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2>What you might be wondering</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What happens in a hypnotherapy session?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You remain fully in control throughout. Hypnosis is a state of focused relaxation — you'll be aware of everything, just deeply at ease. We'll discuss your goals beforehand, and you can stop at any point.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How are sessions conducted?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>All sessions are held online via WhatsApp, Skype or Zoom — whichever you're most comfortable with. Zoom sessions can be recorded so you can revisit them whenever you'd like.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How many sessions will I need?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>This varies completely depending on what you're working through. Some clients find one session is enough — for example, smoking cessation. Others benefit from a series of sessions. We'll discuss this in your initial conversation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How much do sessions cost?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Pricing is available on enquiry, as each pathway is tailored to your individual needs. Get in touch via the contact form and I'll come back to you with pricing for your specific situation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Is hypnotherapy safe?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — completely. You're conscious and in control throughout, and you cannot be made to do anything against your will. It's simply a state of deep relaxation and focused awareness.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Do you offer group sessions or workshops?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — I'm available for Hypnotherapy talks, group sessions, workshops and seminars. Please get in touch via the contact page to discuss your group's needs.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================
+       CONTACT PAGE
+       ============================================ -->
+  <div class="page" id="page-contact">
+    <section style="padding-top: 5rem;">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <span class="section-eyebrow">Get in Touch</span>
+          <h2>Begin your <span class="accent">journey today.</span></h2>
+          <p>Whether you're ready to book or simply curious, I'd love to hear from you. Send a message via the form and I'll respond personally — usually within 24 hours.</p>
+
+          <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); margin-bottom: 2rem;">"The first step is often the bravest. I'll meet you there."</p>
+
+          <div class="social-row">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.9h-2.33v6.98A10 10 0 0 0 22 12z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@clairelouisewallace2" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.01a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="service">I'm interested in</label>
+            <select id="service" name="service">
+              <option value="Hypnotherapy">Hypnotherapy</option>
+              <option value="Psychotherapy">Psychotherapy</option>
+              <option value="Akashic Record Clearing">Akashic Record Clearing</option>
+              <option value="Spirit & Entity Release">Spirit &amp; Entity Release</option>
+              <option value="Group / Workshop">Group / Workshop</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" required placeholder="Tell me a little about what's bringing you here..."></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer>
+    <div class="footer-logo">New Horizons by Claire Wallace</div>
+    <p>Hypnotherapy · Psychotherapy · Metaphysics</p>
+    <p style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Online sessions, worldwide.</p>
+    <div class="footer-small">
+      © <span id="year"></span> New Horizons by Claire Wallace. Website by <a href="https://clientgrowthhq.co.uk" target="_blank" rel="noopener">Client Growth HQ</a>.
+    </div>
+  </footer>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + pageId);
+      if (target) target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-links');
+      const isOpen = menu.classList.contains('open');
+      menu.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+
+      const links = menu.querySelectorAll('a');
+      if (!isOpen) {
+        // Opening — reset and fade in one by one
+        links.forEach(link => {
+          link.style.opacity = '0';
+          link.style.transform = 'translateY(15px)';
+        });
+        links.forEach((link, i) => {
+          setTimeout(() => {
+            link.style.transition = 'opacity 0.5s ease, transform 0.5s ease, color 0.2s';
+            link.style.opacity = '1';
+            link.style.transform = 'translateY(0)';
+          }, 400 + (i * 250));
+        });
+      } else {
+        // Closing — reset for next open
+        links.forEach(link => {
+          link.style.opacity = '';
+          link.style.transform = '';
+          link.style.transition = '';
+        });
+      }
+    }
+    function closeMobile() {
+      const menu = document.querySelector('.nav-links');
+      menu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menu.querySelectorAll('a').forEach(link => {
+        link.style.opacity = '';
+        link.style.transform = '';
+        link.style.transition = '';
+      });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ============================================
+       TWINKLING STARS GENERATOR
+       ============================================ */
+    (function() {
+      const container = document.getElementById('stars');
+      if (!container) return;
+
+      const starCount = 60;
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+
+        // Random size between 1 and 3 pixels
+        const size = 1 + Math.random() * 2;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+
+        // Random position
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+
+        // Random twinkle duration between 3-7 seconds
+        star.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
+
+        // Random delay so they don't all twinkle in sync
+        star.style.setProperty('--delay', (Math.random() * 5) + 's');
+
+        // Vary max opacity for depth
+        star.style.setProperty('--max-opacity', (0.3 + Math.random() * 0.5).toFixed(2));
+
+        container.appendChild(star);
+      }
+    })();
+
+    /* ============================================
+       SPARKLE TRAIL
+       ============================================ */
+    (function() {
+      let lastSparkleTime = 0;
+      const sparkleDelay = 60;
+
+      function createSparkle(x, y, target) {
+        const now = Date.now();
+        if (now - lastSparkleTime < sparkleDelay) return;
+
+        // Don't spawn sparkles on interactive elements
+        if (target && target.closest('.btn, button, a, input, textarea, select, .contact-form')) {
+          return;
+        }
+
+        lastSparkleTime = now;
+
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+
+        const size = 4 + Math.random() * 6;
+        sparkle.style.width = size + 'px';
+        sparkle.style.height = size + 'px';
+
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 800);
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        createSparkle(e.clientX, e.clientY, e.target);
+      });
+
+      document.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        if (touch) createSparkle(touch.clientX, touch.clientY, e.target);
+      }, { passive: true });
+
+      document.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        if (touch) createSparkle(touch.clientX, touch.clientY, e.target);
+      }, { passive: true });
+    })();
+
+    /* ============================================
+       ANIME.JS ANIMATIONS — minimal & elegant
+       ============================================ */
+
+    // 1. Hero entrance — one gentle fade in, no movement
+    anime({
+      targets: ['.hero-eyebrow', '.hero h1', '.hero-sub', '.hero-cta .btn'],
+      opacity: [0, 1],
+      duration: 2000,
+      delay: anime.stagger(300),
+      easing: 'cubicBezier(0.4, 0, 0.2, 1)'
+    });
+
+    // 2. Scroll-triggered fades — pure opacity, no movement
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+          entry.target.dataset.animated = 'true';
+
+          const elements = entry.target.querySelectorAll(
+            '.section-header > *, .service-card, .testimonial, .journey-step, .welcome-grid > *'
+          );
+
+          if (elements.length) {
+            anime({
+              targets: elements,
+              opacity: [0, 1],
+              duration: 1800,
+              delay: anime.stagger(150),
+              easing: 'cubicBezier(0.4, 0, 0.2, 1)'
+            });
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('section').forEach(s => scrollObserver.observe(s));
+
+    // Set initial opacity to 0 on elements before they animate in
+    document.querySelectorAll(
+      '.hero-eyebrow, .hero h1, .hero-sub, .hero-cta .btn'
+    ).forEach(el => el.style.opacity = '0');
+
+    document.querySelectorAll(
+      '.section-header > *, .service-card, .testimonial, .journey-step, .welcome-grid > *'
+    ).forEach(el => el.style.opacity = '0');
+  </script>
+
+</body>
+</html>
