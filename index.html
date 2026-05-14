@@ -1336,6 +1336,36 @@
   </div>
 
   <!-- ============================================
+       DISCLAIMER PAGE
+       ============================================ -->
+  <div class="page" id="page-disclaimer">
+    <section style="padding-top: 5rem;">
+      <div class="section-header">
+        <span class="section-eyebrow">Legal</span>
+        <h2>Disclaimer &amp; Terms</h2>
+        <p>Please read the following before using this website or booking any services.</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; line-height: 1.9; color: var(--ink-soft);">
+
+        <h3 style="font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-soft); margin: 2rem 0 0.75rem;">Hypnotherapy &amp; Psychotherapy</h3>
+        <p>Claire Wallace is a fully qualified Hypnotherapist and Psychotherapist. However, the services offered through this website are not a substitute for professional medical or psychological care. They are not intended to diagnose, treat or cure any physical or psychological condition.</p>
+        <p style="margin-top: 1rem;">Hypnotherapy may not be suitable for everyone and individual results will vary. If you have any concerns about your physical or mental health, please consult your GP or a qualified medical professional before booking. By using this website and its services, you acknowledge that participation in hypnotherapy is at your own risk. Claire Wallace and New Horizons are not liable for any outcomes or consequences arising from sessions.</p>
+        <p style="margin-top: 1rem;">All clients must be 18 years of age or older. Children may only access hypnotherapy services when accompanied by a parent or legal guardian.</p>
+
+        <h3 style="font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-soft); margin: 2rem 0 0.75rem;">Mediumship &amp; Spiritual Readings</h3>
+        <p>The mediumship and spiritual reading services offered on this website are conducted by a trained and experienced medium with formal counselling training. Readings are approached with authenticity, care and a genuine desire to offer guidance and support.</p>
+        <p style="margin-top: 1rem;">No medium can guarantee 100% accuracy. The insights offered during a reading reflect Claire's interpretation at the time and are intended as guidance only — not as definitive predictions or absolute advice. Some information may not make immediate sense; we encourage an open mind.</p>
+        <p style="margin-top: 1rem;">Readings are not a substitute for professional services in areas such as medicine, law, finance or psychology. Any significant decisions remain solely the responsibility of the client. By booking a reading, you acknowledge that outcomes cannot be guaranteed and that the information provided is for personal and spiritual growth only.</p>
+
+        <h3 style="font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-soft); margin: 2rem 0 0.75rem;">General</h3>
+        <p>By using this website and its services, you agree to these terms. All services are offered in compliance with UK law and are intended solely for the personal and spiritual growth of the client. New Horizons by Claire Wallace accepts no liability beyond what is required by law.</p>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================
        FAQ PAGE
        ============================================ -->
   <div class="page" id="page-faq">
@@ -1438,7 +1468,7 @@
           </div>
         </div>
 
-        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="false">
+        <form class="contact-form" name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="false">
           <input type="hidden" name="form-name" value="contact">
           <input type="hidden" name="_to" value="hello@newhorizonsbyclaire.co.uk">
           <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
@@ -1488,6 +1518,8 @@
     <p style="max-width: 600px; margin: 1.5rem auto 0; font-size: 0.8rem; color: var(--ink-muted); line-height: 1.7; font-style: italic;">All services offered by New Horizons by Claire Wallace are intended for general wellbeing purposes only and do not constitute medical advice, diagnosis or treatment. If you have concerns about your physical or mental health, please consult a qualified medical professional.</p>
     <div class="footer-small">
       © <span id="year"></span> New Horizons by Claire Wallace. Website by <a href="https://clientgrowthhq.co.uk" target="_blank" rel="noopener">Client Growth HQ</a>.
+      <span style="margin: 0 0.5rem;">·</span>
+      <a href="#disclaimer" onclick="showPage('disclaimer')" style="color: var(--ink-muted);">Disclaimer &amp; Terms</a>
     </div>
   </footer>
 
