@@ -395,31 +395,6 @@
     @media (max-width: 760px) {
       .welcome-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-    .welcome-image {
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--bg-3), var(--purple-deep));
-      border: 2px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink-muted);
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .welcome-image::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border-radius: 50%;
-      border: 1px solid var(--gold-deep);
-    }
     .welcome-text h2 {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -1125,7 +1100,9 @@
 
     <section class="welcome">
       <div class="welcome-grid">
-        <div class="welcome-image" style="background: url('claire.jpg') center/cover; padding: 0;"></div>
+        <div class="about-photo-main">
+          <img src="claire.jpg" alt="Claire Wallace, New Horizons">
+        </div>
         <div class="welcome-text">
           <span class="section-eyebrow">Welcome</span>
           <h2>Online wellness, <span class="accent">guided with care.</span></h2>
