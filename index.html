@@ -434,6 +434,50 @@
     }
 
     /* ============================================
+       ABOUT PAGE PHOTOS
+       ============================================ */
+    .about-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .about-photo-main,
+    .about-photo-full {
+      border: 1px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-3);
+    }
+    .about-photo-main::before,
+    .about-photo-full::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid var(--gold-deep);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .about-photo-main img,
+    .about-photo-full img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .about-photo-main img {
+      object-fit: cover;
+      object-position: top center;
+    }
+    .about-photo-caption {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: -0.75rem;
+    }
+
+    /* ============================================
        SERVICES
        ============================================ */
     .services-grid {
@@ -1225,7 +1269,14 @@
       </div>
 
       <div class="welcome-grid" style="max-width: 1000px; margin: 0 auto;">
-        <div class="welcome-image" style="background: url('claire.jpg') center/cover; padding: 0;"></div>
+        <div class="about-photos">
+          <div class="about-photo-main">
+            <img src="claire.jpg" alt="Claire Wallace, New Horizons">
+          </div>
+          <div class="about-photo-full">
+            <img src="claire-full.jpg" alt="Claire Wallace, full length portrait">
+          </div>
+        </div>
         <div class="welcome-text">
           <p style="color: var(--ink); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; margin-bottom: 1.5rem;">"I believe everyone has the power to transform their own life — sometimes we just need someone to walk alongside us for a while."</p>
           <p>Claire Wallace is a fully qualified Hypnotherapist and Psychotherapist and a full member of the General Hypnotherapy Register. She takes a psycho-spiritual approach to her work, specialising in trauma release in a gentle and compassionate way — helping clients find lasting healing rather than just short-term relief.</p>
